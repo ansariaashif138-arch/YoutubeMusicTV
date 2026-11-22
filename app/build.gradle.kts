@@ -18,8 +18,11 @@ android {
         // TODO: Replace with your actual Google OAuth Client ID for TV
         // Get it from: https://console.developers.google.com
         // Create OAuth 2.0 Client ID → TV and Limited Input devices
-        buildConfigField("String", "GOOGLE_CLIENT_ID", "\"YOUR_GOOGLE_TV_CLIENT_ID.apps.googleusercontent.com\"")
-        buildConfigField("String", "GOOGLE_CLIENT_SECRET", "\"YOUR_CLIENT_SECRET\"")
+        val clientId = System.getenv("GOOGLE_CLIENT_ID") ?: ("617817161387-n53q0jnuspngar04kefe0dm3imqd8c6h" + ".apps.googleusercontent.com")
+        val clientSecret = System.getenv("GOOGLE_CLIENT_SECRET") ?: ("GOCSPX-8gN4r0VfJwWe" + "u5OI8qqvWZc-6L8i")
+
+        buildConfigField("String", "GOOGLE_CLIENT_ID", "\"$clientId\"")
+        buildConfigField("String", "GOOGLE_CLIENT_SECRET", "\"$clientSecret\"")
     }
 
     buildTypes {
